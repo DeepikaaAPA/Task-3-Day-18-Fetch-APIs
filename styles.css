@@ -1,0 +1,39 @@
+.card {
+  background-color: lightgray;
+}
+.card:hover {
+  box-shadow: 2px 2px 5px 2px grey, -2px -2px 5px 2px grey;
+}
+.card-img-top {
+  max-width: 15em;
+  height: 10em;
+}
+.title,
+.title input {
+  font-size: 2rem;
+}
+body {
+  background-color: rgb(18, 17, 17);
+  color: white;
+  font-size: larger;
+  text-align: center;
+}
+.card h5 {
+  background-color: rgb(10, 9, 9);
+  color: white;
+  height: 3em;
+  padding: 5px;
+}
+.card-text {
+  color: rgb(108, 97, 97);
+  font-weight: 200;
+}
+.modal-dialog,
+.modal-content {
+  background-color: rgba(247, 197, 139, 0.95);
+  color: rgb(25, 130, 81);
+}
+h2 {
+  text-align: center !important;
+  text-decoration: azure;
+}
