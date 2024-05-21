@@ -28,7 +28,7 @@ aria-hidden="true">
   </div>
   <div class="modal-body" >
   <canvas id="Chart"></canvas>
-   
+   <p> Time in GMT </p>
   </div>
 
 </div>
@@ -50,14 +50,11 @@ function findRegions(data) {
   regions.innerHTML = options;
 }
 
-function closeDialog() {
-  d.close();
-}
 function populateDialog(data, city) {
   console.log("modal");
   document.getElementById(
     "weatherTitle"
-  ).innerText = `WEATHER at ${city}  ( ${data.latitude} ,${data.longitude} )`;
+  ).innerHTML = `TODAY'S WEATHER FORECAST for ${city}  <br>  (${data.latitude} &deg;N ,${data.longitude} &deg;E)`;
   const ctx = document.getElementById("Chart").getContext("2d");
   let labels = Object.values(data.hourly.time).map((d) => d.slice(11));
   let dataObj = {
@@ -68,7 +65,8 @@ function populateDialog(data, city) {
   let obj = {};
   obj.label = "Celsius";
   obj.data = Object.values(data.hourly.temperature_2m);
-  obj.background = "rgba(204, 221, 213,0.2);";
+  obj.backgroundColor = "transparent";
+
   dataObj.data.datasets = [obj];
   let myChart = new Chart(ctx, dataObj);
 }
@@ -111,7 +109,7 @@ function createCards(event, countries) {
       c.latlng ? c.latlng[1] : null
     }','${c.capital[0]}, ${
       c.name.common
-    }')" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#weather">Get Weather
+    }')" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#weather">Get Weather Forecast
            
       </button>
     </div>
